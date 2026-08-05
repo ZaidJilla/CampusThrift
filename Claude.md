@@ -20,8 +20,8 @@ A campus-focused secondhand clothing marketplace app. Launching first at Tufts, 
 
 ## Team & ownership
 
-- **Zaid** — backend (FastAPI, Supabase, Stripe). Background in Java/Python.
-- **Co-founder (Tufts)** — frontend (React Native). Learning as they go — prioritize `useState`, `useEffect`, and `FlatList` explanations since those power nearly every screen.
+- **Zaid (Northeastern)** — backend (FastAPI, Supabase, Stripe). Background in Java/Python.
+- **Priyanka (Tufts)** — frontend (React Native). Learning as they go — prioritize `useState`, `useEffect`, and `FlatList` explanations since those power nearly every screen.
 
 ## Branch structure
 
