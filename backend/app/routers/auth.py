@@ -14,7 +14,7 @@ def signup(payload: SignUpRequest) -> SignUpResponse:
         raise HTTPException(
             status_code=400,
             detail=(
-                "Campus Closet is only available to Tufts and Northeastern students. "
+                "Reloved is only available to Tufts and Northeastern students. "
                 "Please sign up with your .edu email."
             ),
         )

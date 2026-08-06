@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routers import auth
 
-app = FastAPI(title="Campus Closet API")
+app = FastAPI(title="Reloved API")
 
 app.add_middleware(
     CORSMiddleware,
