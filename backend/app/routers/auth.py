@@ -46,7 +46,10 @@ def signup(payload: SignUpRequest) -> SignUpResponse:
             }
         ).execute()
     except Exception as exc:
-        admin.auth.admin.delete_user(user.id)
+        try:
+            admin.auth.admin.delete_user(user.id)
+        except Exception:
+            pass
         raise HTTPException(
             status_code=500, detail="Account rolled back: profile setup failed."
         ) from exc
