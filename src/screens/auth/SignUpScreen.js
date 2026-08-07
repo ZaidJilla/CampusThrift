@@ -24,7 +24,19 @@ export default function SignUpScreen({ navigation }) {
     }
 
     setLoading(true);
-    const { data, error } = await supabase.auth.signUp({ email, password });
+    // school_id/full_name are passed as user metadata; a database trigger
+    // (see supabase/schema.sql) creates the profiles row server-side, since
+    // there's no active session yet to satisfy the profiles RLS policy here.
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          school_id: school.id,
+          full_name: fullName.trim(),
+        },
+      },
+    });
     setLoading(false);
 
     if (error) {
@@ -32,24 +44,11 @@ export default function SignUpScreen({ navigation }) {
       return;
     }
 
-    // Create the profile row. Supabase will send a confirmation email;
-    // profile creation happens now so it's ready once they confirm.
-    if (data.user) {
-      const { error: profileError } = await supabase.from('profiles').insert({
-        id: data.user.id,
-        school_id: school.id,
-        full_name: fullName.trim(),
-      });
-      if (profileError) {
-        Alert.alert('Account created, but profile setup failed', profileError.message);
-      } else {
-        Alert.alert(
-          'Check your email',
-          `We sent a confirmation link to ${email}. Confirm it, then log in.`
-        );
-        navigation.navigate('Login');
-      }
-    }
+    Alert.alert(
+      'Check your email',
+      `We sent a confirmation link to ${email}. Confirm it, then log in.`
+    );
+    navigation.navigate('Login');
   }
 
   return (
