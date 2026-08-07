@@ -26,13 +26,9 @@ def signup(payload: SignUpRequest) -> SignUpResponse:
             {
                 "email": payload.email,
                 "password": payload.password,
-                # Requires the usual email confirmation before login is allowed.
-                # Note: unlike the client's auth.signUp(), the admin API does not send
-                # the confirmation email itself — that still needs to be wired up
-                # (e.g. admin.generate_link + your own mailer) before this replaces
-                # the client-side signup flow.
-                "email_confirm": False,
-            }
+                # TODO: If you want email confirmation, wire up admin.generate_link + a mailer.
+                # Until then, confirm immediately so newly created users can log in.
+                "email_confirm": True,
         )
     except Exception as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
