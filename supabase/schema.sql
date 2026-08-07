@@ -187,6 +187,11 @@ security definer
 set search_path = public
 as $$
 begin
+  if new.raw_user_meta_data ->> 'school_id' is null
+     or new.raw_user_meta_data ->> 'full_name' is null then
+    raise exception 'Missing required user metadata (school_id/full_name) for user %', new.id;
+  end if;
+
   insert into public.profiles (id, school_id, full_name)
   values (
     new.id,
