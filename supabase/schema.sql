@@ -178,7 +178,7 @@ create policy "users can file reports"
 -- ============================================================
 -- signUp() has no active session yet when email confirmation is required,
 -- so a client-side insert into profiles fails the RLS check (auth.uid() is
--- null). This trigger runs server-side as the table owner, bypassing RLS,
+-- null). This trigger runs server-side as the function owner, bypassing RLS,
 -- and reads the school_id/full_name passed via signUp's `options.data`.
 create or replace function public.handle_new_user()
 returns trigger
