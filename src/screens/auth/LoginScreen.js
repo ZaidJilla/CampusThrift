@@ -19,7 +19,7 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Campus Closet</Text>
+      <Text style={styles.title}>Reloved</Text>
       <Text style={styles.subtitle}>Buy, sell, and make clothes with your campus.</Text>
 
       <TextInput
