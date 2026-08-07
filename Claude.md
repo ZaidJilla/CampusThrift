@@ -1,4 +1,4 @@
-# Campus Thrift
+# Reloved
 
 A campus-focused secondhand clothing marketplace app. Launching first at Tufts, then expanding to Northeastern.
 
