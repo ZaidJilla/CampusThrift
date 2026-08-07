@@ -31,7 +31,7 @@ def signup(payload: SignUpRequest) -> SignUpResponse:
                 "email_confirm": True,
         )
     except Exception as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
+        raise HTTPException(status_code=400, detail="Unable to create account.") from exc
 
     user = created.user
     if user is None:
