@@ -1,4 +1,4 @@
--- Campus Closet — Supabase schema
+-- Reloved — Supabase schema
 -- Run this in the Supabase SQL editor on a fresh project.
 
 -- 1. Schools (campuses supported at launch)

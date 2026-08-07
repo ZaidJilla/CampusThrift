@@ -4,7 +4,7 @@ require('dotenv').config();
 
 module.exports = {
   expo: {
-    name: 'Campus Closet',
+    name: 'Reloved',
     slug: 'campus-closet',
     version: '1.0.0',
     orientation: 'portrait',
